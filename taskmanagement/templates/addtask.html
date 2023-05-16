@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- add task -->
+        <div class="col-md-4   mt-5 mb-3">
+            <h3 class="heading bg-primary text-center p-2 text-light rounded">Add Your Task </h3>
+            <form action="#" method="POST">
+                {% csrf_token %}
+                <div class="mb-3 mt-3">
+                    <label for="title" class="form-label fw-bold"> Task Title</label>
+                    <input type="text" name="title" class="form-control" id="title" placeholder="Add Title">
+                </div>
+                <div class="mb-3">
+                    <label for="desc" class="form-label fw-bold">Description</label>
+                    <textarea class="form-control" name="desc" id="desc" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label fw-bold"> Start Date</label>
+                    <input type="date" name="sdate" class="form-control" id="date" placeholder="Add Date">
+                </div>
+                <div class="mb-3">
+                    <label for="edate" class="form-label fw-bold"> End Date</label>
+                    <input type="date" name="edate" class="form-control" id="edate" placeholder="Add Date">
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="1" name="status" id="status" checked>
+                    <label class="form-check-label fw-bold" for="status">
+                        Completed
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio"   value="0" name="status" id="status2">
+                    <label class="form-check-label fw-bold" for="status2">
+                        Pending
+                    </label>
+                </div>
+                <button class="btn btn-danger mt-5 ms-5 fw-bold" type="submit"> Add Task</button>
+            </form>
+        </div>
+        <!-- view task -->
+        <div class="col-md-8">
+            <div class="col-md-8 mt-5 ms-5">
+                <h3 class="heading bg-primary text-center p-2 text-light rounded">See Your Task </h3>
+                <table class="table table-hover">
+
+                    <tr>
+                        <th>Task Name</th>
+                        <th>Description</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Status</th>
+                        <!-- <th>Edit Task</th>
+                        <th>Delete Task</th> -->
+
+
+                    </tr>
+                    {% for x in tasks %}
+                    <tr>
+                        <td><a class="text-decoration-none text-dark" href="#">{{x.task_title}}</a></td>
+
+
+                        <td>{{x.desc}}</td>
+                        <td>{{x.sdate}}</td>
+                        <td>{{x.edate}}</td>
+                        {% if x.status == 1 %}
+                        <td class="text-success fw-bold">Completed</td>
+                        {% else %}
+                        <td class="text-danger fw-bold">Pending</td>
+                        {% endif %}
+                        <!-- <td><a href="/edittask/{{x.id}}"><button class="btn btn-warning">Edit</button></a></td>
+                        <td><a href="/deletetask/{{x.id}}"><button class="btn btn-danger">Delete</button></a></td> -->
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock 'main' %}

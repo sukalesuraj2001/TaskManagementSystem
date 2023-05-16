@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+
+
+
+<div class="container mt-5  ">
+    <h1 class="heading fw-bold  mx-auto text-primary " style="width: 300px;">Taskia</h1>
+    <h3 class="heading mx-auto mt-3" style="width: 300px;">Use our free <br></h3>
+    <h3 class="heading mx-auto" style="width: 500px;"> Task Management System..</h3>
+</div>
+<div class="container mt-5">
+    <img src="{% static '/images/slide.png' %}" class="img-fluid rounded" alt="...">
+
+</div>
+<div class="container">
+    <h3 class="heading mx-auto mt-5" style="width: 500px;"> Featured Service That We Provide</h3>
+    <div class="row ms-3 mt-5">
+        <div class="col">
+            <div class="card ms-3 mb-4" style="width: 18rem;">
+                <img src="{% static '/images/add.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Add The Tasks</h5>
+                    <p class="card-text">Add Your Task With Current Status</p>
+                    <a href="/addtask" class="btn btn-primary ms-5">Add Task</a>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col">
+            <div class="card ms-3 mb-4" style="width: 18rem;">
+                <img src="{% static '/images/view.jpg' %}" height="170px" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">View Your Tasks</h5>
+                    <p class="card-text">View Your Tasks.</p>
+                    <a href="/viewtask" class="btn btn-primary ms-5">View Task</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col">
+            <div class="card ms-3 mb-4" style="width: 18rem;">
+                <img src="{% static '/images/edit.png' %}" height="170px" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Edit & Delete Tasks.</h5>
+                    <p class="card-text">Edit And Delete your Tasks.</p>
+                    <a href="/viewtask" class="btn btn-primary ms-5">Edit Or Delete Task</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+<div class="container mt-5">
+    <img src="{% static '/images/slide2.png' %}" class="img-fluid rounded" alt="...">
+
+</div>
+<div class="container mt-5">
+    <img src="{% static '/images/slide3.png' %}" class="img-fluid rounded" alt="...">
+
+</div>
+
+
+{% endblock 'main' %}
